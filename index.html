@@ -76,7 +76,6 @@
                 <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Jimin&backgroundColor=e0e7ff" alt="이지민 프로필" class="w-full h-full object-cover" />
               </div>
               
-              <!-- 마우스 올리면 나타나는 말풍선 팝업 (툴팁) -->
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 opacity-0 invisible group-hover/avatar:opacity-100 group-hover/avatar:visible group-hover/avatar:-translate-y-2 transition-all duration-300 z-20 pointer-events-none">
                 <div class="bg-slate-800/95 backdrop-blur-sm text-white p-5 rounded-2xl shadow-xl border border-slate-700 relative">
                   <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-800/95"></div>
@@ -100,8 +99,6 @@
               </div>
             </div>
           </div>
-          
-          <!-- 이름과 한줄 소개 -->
           <div class="text-center mb-2 flex-1 flex flex-col">
             <h3 class="text-2xl font-bold text-slate-900 mb-2">이지민</h3>
             <span class="inline-block bg-indigo-50 text-indigo-700 text-sm font-semibold px-3 py-1 rounded-full mx-auto mb-4">컴퓨터공학과</span>
@@ -228,13 +225,25 @@
           </div>
         </div>
 
-        <!-- ======================= 5. 임정규 ======================= -->
+        <!-- ======================= 5. 임정규 (마법의 버튼 추가!) ======================= -->
         <div class="group relative bg-white rounded-3xl p-8 shadow-[0_2px_20px_rgb(0,0,0,0.04)] border border-slate-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col lg:col-span-2 lg:col-start-4">
           <div class="flex justify-center mb-6">
-            <div class="relative group/avatar cursor-help">
-              <div class="w-28 h-28 rounded-full overflow-hidden bg-slate-50 ring-4 ring-white shadow-lg group-hover/avatar:ring-indigo-100 transition-all duration-300">
-                <img src="Gemini_Generated_Image_okt2lqokt2lqokt2.png" alt="AI 프로필 적용 완료" class="w-full h-full object-cover text-xs text-slate-400 flex items-center justify-center text-center p-2" />
+            <div class="relative group/avatar cursor-pointer">
+              
+              <!-- 둥근 프로필 영역 -->
+              <div class="w-28 h-28 rounded-full overflow-hidden bg-slate-50 ring-4 ring-white shadow-lg group-hover/avatar:ring-indigo-100 transition-all duration-300 relative">
+                <!-- 기본 이미지 (업로드 전) -->
+                <img id="jeonggyu-img" src="https://api.dicebear.com/7.x/notionists/svg?seed=Jeonggyu&backgroundColor=fef08a" alt="임정규 프로필" class="w-full h-full object-cover transition-all" />
+                
+                <!-- ✨ 마법의 사진 업로드 버튼 (마우스를 올리면 나타납니다!) ✨ -->
+                <label for="photo-upload" class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 text-white opacity-0 hover:opacity-100 transition-opacity cursor-pointer z-10">
+                  <i data-lucide="camera" class="w-6 h-6 mb-1"></i>
+                  <span class="text-[11px] font-bold">내 사진 넣기</span>
+                </label>
+                <!-- 실제 사진을 받아오는 숨겨진 장치 -->
+                <input type="file" id="photo-upload" accept="image/*" class="hidden" />
               </div>
+              
               <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 opacity-0 invisible group-hover/avatar:opacity-100 group-hover/avatar:visible group-hover/avatar:-translate-y-2 transition-all duration-300 z-20 pointer-events-none">
                 <div class="bg-slate-800/95 backdrop-blur-sm text-white p-5 rounded-2xl shadow-xl border border-slate-700 relative">
                   <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 border-8 border-transparent border-t-slate-800/95"></div>
@@ -271,26 +280,20 @@
     </div>
   </section>
 
-  <!-- 가장 아래 연락처 섹션 (큰 사진 제거 후 중앙 정렬) -->
+  <!-- 가장 아래 연락처 섹션 -->
   <section id="contact" class="py-20 bg-white overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-      
       <h2 class="text-3xl font-bold text-slate-900 sm:text-4xl mb-6 leading-tight">
         저희 팀과 함께<br/>
         <span class="text-indigo-600">새로운 이야기</span>를 만들어가요
       </h2>
-      
-      <!-- 기존 문구를 대체하는 추가 이미지 영역 -->
       <div class="mb-8 rounded-2xl overflow-hidden shadow-lg border border-slate-200 w-full max-w-xl relative aspect-video">
         <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="협업 이미지" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
       </div>
-      
-      <!-- 대표 이메일 버튼 -->
       <a href="mailto:hello@teamawesome.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-indigo-600 rounded-full hover:bg-indigo-700 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] hover:-translate-y-1">
         <i data-lucide="mail" class="w-5 h-5 mr-3"></i>
         팀 대표 메일 보내기
       </a>
-      
     </div>
   </section>
 
@@ -301,9 +304,22 @@
     </p>
   </footer>
 
-  <!-- 3. 아이콘들을 화면에 표시해주는 스크립트 실행 -->
+  <!-- 스크립트 실행 (아이콘 띄우기 & 사진 업로드 기능) -->
   <script>
+    // 아이콘 생성
     lucide.createIcons();
+
+    // ✨ 화면에서 바로 사진을 바꿀 수 있는 마법의 코드 ✨
+    document.getElementById('photo-upload').addEventListener('change', function(event) {
+      if (event.target.files && event.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          // 사진을 선택하면 임정규 프로필 사진의 주소를 바로 교체합니다.
+          document.getElementById('jeonggyu-img').src = e.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    });
   </script>
 </body>
 </html>
